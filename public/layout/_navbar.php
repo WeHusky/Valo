@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <a href="/VALORANT/public/user/agents.php" class="text-white opacity-70 hover:opacity-100 hover:text-white transition-all duration-300">Agents</a>
             </li>
             <li>
-                <a href="#" class="text-white opacity-70 hover:opacity-100 hover:text-white transition-all duration-300">Maps</a>
+                <a href="../user/maps.php" class="text-white opacity-70 hover:opacity-100 hover:text-white transition-all duration-300">Maps</a>
             </li>
             <li>
                 <a href="#" class="text-white opacity-70 hover:opacity-100 hover:text-white transition-all duration-300">Weapons</a>

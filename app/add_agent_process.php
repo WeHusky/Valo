@@ -44,7 +44,7 @@ if (!isset($_FILES['agent_image']) || $_FILES['agent_image']['error'] !== UPLOAD
 $file = $_FILES['agent_image'];
 $file_tmp_name = $file['tmp_name'];
 $file_size = $file['size'];
-$file_error = $file['error'];
+// $file_error = $file['error']; // Variabel ini tidak terpakai
 
 // Cek ekstensi file
 $file_ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
@@ -63,27 +63,26 @@ if ($file_size > $max_file_size) {
 }
 
 // --- 4. Proses Pindah File (SESUAI PERMINTAAN ANDA) ---
-// 
-// UBAHAN UTAMA DI SINI:
-// Kita tidak lagi pakai uniqid(). Kita pakai nama agen.
-//
 // 1. Bersihkan nama agen (ubah "Agent ABC" jadi "agent_abc")
 $clean_agent_name = strtolower(str_replace(' ', '_', $agent_name));
 
 // 2. Buat nama file baru (misal: "agent_abc.png")
 $new_file_name = $clean_agent_name . '.' . $file_ext;
-$upload_destination = __DIR__ . '/../../public/images/agents/' . $new_file_name;
+$upload_destination = __DIR__ . '/../public/images/agents/' . $new_file_name;
 
-// Pastikan folder ../../public/images/agents/ ada
+// Pastikan folder ../../public/images/agents/ ada dan bisa ditulisi
 if (!is_dir(__DIR__ . '/../../public/images/agents/')) {
     mkdir(__DIR__ . '/../../public/images/agents/', 0755, true);
 }
 
-// Pindahkan file yang diupload ke lokasi tujuan
+// !! INI ADALAH BAGIAN YANG DIPERBAIKI !!
+// Memindahkan file yang diupload ke lokasi tujuan
 if (!move_uploaded_file($file_tmp_name, $upload_destination)) {
-    header('Location: /VALORANT/public/user/add_agent.php?error=' . urlencode('Failed to move uploaded file. Check permissions.'));
+    header('Location: /VALORANT/public/user/add_agent.php?error=' . urlencode('Failed to move uploaded file. Check folder permissions.'));
     exit;
 }
+
+// BLOK KODE 'poster_file' YANG SALAH TELAH DIHAPUS DARI SINI
 
 // --- 5. Masukkan ke Database ---
 // Nama file yang disimpan di DB adalah nama baru (misal: "agent_abc.png")

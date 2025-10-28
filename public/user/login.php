@@ -17,10 +17,8 @@
             font-size: 150px;
         }
         
-        /* Font ini ada di kode Anda tapi tidak terpakai, 
-           saya akan pakai untuk judul form agar lebih keren */
         .hero-text {
-            font-family: 'Tungsten', sans-serif; /* Ganti 'Tungsten' jika nama font Anda berbeda */
+            font-family: 'Tungsten', sans-serif; 
             letter-spacing: 2px;
         }
     </style>
@@ -88,7 +86,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+                </div>
         </div>
 
     </main>
@@ -119,6 +117,11 @@
 
         // Saat overlay (background gelap) diklik, panggil fungsi closeModal
         modalOverlay.addEventListener('click', closeModal);
+
+        // OTOMATIS TAMPILKAN MODAL JIKA ADA PESAN ERROR/SUCCESS
+        <?php if (isset($_GET['error']) || isset($_GET['success'])): ?>
+            openModal();
+        <?php endif; ?>
     </script>
     
 </body>

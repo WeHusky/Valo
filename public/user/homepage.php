@@ -39,8 +39,7 @@
                 that create opportunities to let your gunplay shine. No two Agents play alike, just as no two 
                 highlight reels will look the same.
                 </p>
-                <button class="bg-[#FF4655] hover:bg-[#FF4655]/90 text-white font-bold py-3 px-8 rounded transition-all duration-300">
-                View All Agents
+                <button  class="bg-[#FF4655] hover:bg-[#FF4655]/90 text-white font-bold py-3 px-8 rounded transition-all duration-300"><a href="../user/agents.php">View All Agents</a>
                 </button>
                 </div>
             </div>        
