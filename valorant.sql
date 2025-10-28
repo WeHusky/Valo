@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 27, 2025 at 07:25 PM
+-- Generation Time: Oct 28, 2025 at 02:24 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.16
 
@@ -40,12 +40,27 @@ CREATE TABLE `agents` (
 --
 
 INSERT INTO `agents` (`id_agent`, `agent_name`, `role_agent`, `country_agent`, `agent_image`) VALUES
-(1, 'rudi', 'Initiator', 'indonesia', NULL),
-(2, 'Phoenix', 'Duelist', 'GB', 'phoenix.png'),
-(4, 'lmao', 'Duelist', 'GB', 'agent_68ffc34e2513c5.19608535.jpg'),
-(5, 'rudiad', 'Duelist', 'indonesia', 'rudiad.jpg'),
-(6, 'rty', 'Duelist', 'rth', 'rty.jpg'),
-(7, 'trwhw', 'Initiator', 'wrth', 'trwhw.jpg');
+(11, 'Phoenix\\', 'Controller', 'Great Britain', 'phoenix.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maps`
+--
+
+CREATE TABLE `maps` (
+  `id_map` int NOT NULL,
+  `name_map` varchar(2000) NOT NULL,
+  `desc_map` varchar(2000) NOT NULL,
+  `image_map` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `maps`
+--
+
+INSERT INTO `maps` (`id_map`, `name_map`, `desc_map`, `image_map`) VALUES
+(2, 'Haven', 'Uhai', 'haven.png');
 
 -- --------------------------------------------------------
 
@@ -67,7 +82,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'Ajam Ganteng cuy', 'yanto@gmail.com', '$2y$10$ua4hevRXEVwyAZh4Ha1cte9BzSHa0aqzrXVUg6mfDCTLV7BkGqF6e', 'user', '2025-10-27 18:22:31');
+(1, 'Ajam Ganteng cuy', 'admin@123.com', '$2y$10$ua4hevRXEVwyAZh4Ha1cte9BzSHa0aqzrXVUg6mfDCTLV7BkGqF6e', 'admin', '2025-10-27 18:22:31');
 
 --
 -- Indexes for dumped tables
@@ -78,6 +93,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VA
 --
 ALTER TABLE `agents`
   ADD PRIMARY KEY (`id_agent`);
+
+--
+-- Indexes for table `maps`
+--
+ALTER TABLE `maps`
+  ADD PRIMARY KEY (`id_map`);
 
 --
 -- Indexes for table `users`
@@ -94,7 +115,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
-  MODIFY `id_agent` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_agent` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `maps`
+--
+ALTER TABLE `maps`
+  MODIFY `id_map` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
