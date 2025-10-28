@@ -97,28 +97,16 @@
         const loginModal = document.getElementById('loginModal');
         const closeModalButton = document.getElementById('closeModalButton');
         const modalOverlay = document.getElementById('modalOverlay');
-
-        // Fungsi untuk menampilkan modal
+       
         function openModal() {
             loginModal.classList.remove('hidden');
         }
-
-        // Fungsi untuk menyembunyikan modal
         function closeModal() {
             loginModal.classList.add('hidden');
         }
-
-        // Tambahkan 'event listener'
-        // Saat tombol login diklik, panggil fungsi openModal
-        loginButton.addEventListener('click', openModal);
-
-        // Saat tombol close (X) diklik, panggil fungsi closeModal
-        closeModalButton.addEventListener('click', closeModal);
-
-        // Saat overlay (background gelap) diklik, panggil fungsi closeModal
-        modalOverlay.addEventListener('click', closeModal);
-
-        // OTOMATIS TAMPILKAN MODAL JIKA ADA PESAN ERROR/SUCCESS
+        loginButton.addEventListener('click', openModal);    
+        closeModalButton.addEventListener('click', closeModal);     
+        modalOverlay.addEventListener('click', closeModal);      
         <?php if (isset($_GET['error']) || isset($_GET['success'])): ?>
             openModal();
         <?php endif; ?>

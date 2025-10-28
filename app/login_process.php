@@ -32,7 +32,7 @@
         exit;
     }
 
-    // Menggunakan tabel 'users' dan kolom yang sesuai
+ 
     $stmt = mysqli_prepare($conn, "SELECT id, name, password, role FROM users WHERE email = ? LIMIT 1");
     if(!$stmt){
         header('Location: ../public/user/login.php?error=' . urlencode('Server error, please try again later.'));
@@ -67,6 +67,5 @@
     $_SESSION['user_role'] = $role;
     $_SESSION['last_login'] = date('Y-m-d H:i:s');
 
-    // Arahkan ke homepage setelah login berhasil
     header('Location: ../public/user/homepage.php');
     exit;
